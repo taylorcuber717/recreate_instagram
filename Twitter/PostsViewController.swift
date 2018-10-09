@@ -36,10 +36,22 @@ class PostsViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = postTableView.dequeueReusableCell(withIdentifier: "postCell")
+        let cell = postTableView.dequeueReusableCell(withIdentifier: "postCell") as! PostCell
         let post = posts[indexPath.row]
+        cell.indexPath = indexPath
+        if let imageFile : PFFile = post.media {
+            imageFile.getDataInBackground { (data, error) in
+                if (error != nil) {
+                    print(error.debugDescription)
+                }
+                else {
+                    cell.postImageView.image = UIImage(data: data!)
+                }
+            }
+        }
+        cell.captionLabel.text = post.caption
         
-        return UITableViewCell()
+        return cell
     }
     
     func fetchPostsData() {

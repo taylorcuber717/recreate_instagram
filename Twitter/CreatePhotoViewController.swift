@@ -16,6 +16,13 @@ class CreatePhotoViewController: UIViewController, UIImagePickerControllerDelega
     @IBAction func postPhoto(_ sender: Any) {
         let caption = captionTextField.text ?? ""
         let image = takePhotoImageView.image
+        Post.postUserImage(image: image, withCaption: caption) { (success, error) in
+            if (error != nil) {
+                print("EEEEEEEEEEEEEEEEEE")
+                print(error.debugDescription)
+            }
+        }
+        tabBarController?.selectedIndex = 1
         
     }
     
