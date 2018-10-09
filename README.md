@@ -1,16 +1,16 @@
-# Project 4 - *Name of App Here*
+# Project 4 - *Twitter*
 
-**Name of your app** is a photo sharing app using Parse as its backend.
+**Twitter** is a photo sharing app using Parse as its backend.
 
-Time spent: **X** hours spent in total
+Time spent: **15** hours spent in total
 
 ## User Stories
 
 The following **required** functionality is completed:
 
-- [ ] User can sign up to create a new account using Parse authentication (+1pt)
-- [ ] User can log in and log out of his or her account (+1pt)
-- [ ] The current signed in user is persisted across app restarts (+1pt)
+- [*] User can sign up to create a new account using Parse authentication (+1pt)
+- [*] User can log in and log out of his or her account (+1pt)
+- [*] The current signed in user is persisted across app restarts (+1pt)
 - [ ] User can take a photo, add a caption, and post it to "Instagram" (+2pt)
 - [ ] User can view the last 20 posts submitted to "Instagram" (+2pt)
 - [ ] User can pull to refresh the last 20 posts submitted to "Instagram" (+1pt)
@@ -41,14 +41,15 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. How to correctly submit the posts.
+2. How to properly rename projects.
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://imgur.com/LVC4FMs.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://imgur.com/5vjSrkv.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
@@ -61,7 +62,7 @@ List an 3rd party libraries, icons, graphics, or other assets you used in your a
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+I mistakenly thought that we were creating Twitter this week instead of Instagram, because of this I named my project Twitter, I attempted to rename it to Intagram but ended up breaking the entire project and having to get an old save off of github.  Thus, even though my project is called Twitter it is an instagram app.
 
 ## License
 

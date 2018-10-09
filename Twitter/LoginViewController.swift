@@ -48,6 +48,7 @@ class LoginViewController: UIViewController {
                 print(error.localizedDescription)
             } else {
                 print("User Registered successfully")
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
                 // manually segue to logged in view
             }
         }

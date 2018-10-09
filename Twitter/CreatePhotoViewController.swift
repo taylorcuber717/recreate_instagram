@@ -18,7 +18,6 @@ class CreatePhotoViewController: UIViewController, UIImagePickerControllerDelega
         let image = takePhotoImageView.image
         Post.postUserImage(image: image, withCaption: caption) { (success, error) in
             if (error != nil) {
-                print("EEEEEEEEEEEEEEEEEE")
                 print(error.debugDescription)
             }
         }
