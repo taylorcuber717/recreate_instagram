@@ -7,11 +7,21 @@
 //
 
 import UIKit
+import Parse
 
-class PostsViewController: UIViewController {
+class PostsViewController: UIViewController, UITableViewDataSource {
+    
+    @IBOutlet weak var postTableView: UITableView!
+    var refreshController: UIRefreshControl!
+    
+    var posts: [Post] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        postTableView.dataSource = self
+        postTableView.rowHeight = UITableViewAutomaticDimension
+        postTableView.estimatedRowHeight = 300
 
         // Do any additional setup after loading the view.
     }
@@ -21,15 +31,37 @@ class PostsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return posts.count
     }
-    */
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = postTableView.dequeueReusableCell(withIdentifier: "postCell")
+        let post = posts[indexPath.row]
+        
+        return UITableViewCell()
+    }
+    
+    func fetchPostsData() {
+        
+        let query = Post.query()
+        query?.order(byDescending: "createdAt")
+        query?.includeKey("author")
+        query?.includeKey("createdAt")
+        query?.limit = 20
+        
+        // Fetch data asynchronously
+        query?.findObjectsInBackground(block: { (posts, error) in
+            if let posts = posts {
+                self.posts = posts as! [Post]
+                self.postTableView.reloadData()
+                self.refreshController.endRefreshing()
+            }
+            else {
+                print(error.debugDescription)
+            }
+        })
+        
+    }
 
 }
